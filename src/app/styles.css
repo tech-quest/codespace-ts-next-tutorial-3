@@ -1,0 +1,51 @@
+.accordions {
+  margin: 2em 0;
+}
+
+.accordion {
+  margin: 1em 0;
+  border: 1px solid gray;
+}
+.accordion__trigger {
+  position: relative;
+  padding: 1em 1em 1em 3em;
+  cursor: pointer;
+}
+.accordion__trigger:hover {
+  text-decoration: underline;
+}
+.accordion__trigger::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  display: block;
+  width: 1em;
+  height: 2px;
+  background-color: grey;
+  transform: translateY(-50%);
+}
+.accordion__trigger::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 1.5em;
+  display: block;
+  width: 2px;
+  height: 1em;
+  background-color: grey;
+  transform: translateX(-50%) translateY(-50%);
+}
+.accordion__content {
+  padding: 1em;
+  border-top: 1px solid gray;
+}
+.accordion[data-is-open='false'] > .accordion__content {
+  display: none;
+}
+.accordion[data-is-open='true'] > .accordion__content {
+  display: block;
+}
+.accordion[data-is-open='true'] > .accordion__trigger::after {
+  display: none;
+}
